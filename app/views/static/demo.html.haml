@@ -96,7 +96,7 @@
 			= form_for Emptyness.new, url: empty_path do |f|
 				= f.submit 'Коммит!', type: 'image', src: image_path( 'u0.png' ), class: 'bg_ddd'
 %h3	Пачка изображений
-%p= image_pack @images
+%p= image_pack images
 .clear_both
 %h3 Коментарии
 %p= render 'comments/index'

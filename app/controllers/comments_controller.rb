@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to root_path, notice: 'коммент успешно удалён' }
     end
   end
 
