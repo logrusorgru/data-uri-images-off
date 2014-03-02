@@ -28,6 +28,10 @@ a {
     color: #fff;
     background-color: #000;
   }
+  &[href^="http"]{
+    background: url(<%= image_path 'target_blank.png' %>) no-repeat 100% 50%;
+    padding-right: 1em;
+  }
 }
 
 div {

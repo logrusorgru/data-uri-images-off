@@ -24,7 +24,10 @@ class CommentsController < ApplicationController
       else
         #format.html { render root_path }
         @comments = Comment.order("updated_at DESC")
-        format.html { render 'static/demo' }
+        format.html {
+          flash[:notice] = '<span style="color: red">Что-то не так с коментарием</span>'.html_safe
+          render 'static/demo'
+        }
       end
     end
   end
