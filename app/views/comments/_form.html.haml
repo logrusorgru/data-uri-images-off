@@ -1,0 +1,20 @@
+= form_for @comment do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  #invisible_field
+    = label_tag :user_email, "E-Mail"
+    = email_field :user, :email
+  .field
+    = f.label :uname
+    = f.text_field :uname, required: true
+  .field
+    = f.label :content
+    %br
+    = f.text_area :content, required: true
+  .actions
+    = f.submit 'Добавить', type: 'image', src: image_path( 'commit.png' )

@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.content{
+	position: relative;
+	z-index: 99;
+	margin: 2em auto;
+	//display: table;
+	width: 60%;
+}
+
+.comment{
+	td{
+		border-bottom: 1px dotted #333;
+		padding-bottom: .5em;
+		padding-top: .5em;
+	}
+}
+
+.uname{
+	background-color: #ccc;
+	color: #333;
+	padding: .2em 1em;
+	border-radius: .2em;
+	&:after{
+		content: ':'
+	}
+}
+
+textarea{
+	resize: vertical;
+	width: 90%;
+	height: 5em;
+}
+
+input[type=text], textarea{
+	border-radius: .2em;
+	padding: .2em;
+	font-size: 1.2em;
+}
+
+input[type=image]{
+	height: 3em;
+	width: 3em;
+}
+
+.clear_both{ clear: both; }
+
+#comments{
+		width: 100%;
+		td:nth-of-type(1){ width: 20%; }
+}
+
+#invisible_field{
+	position: fixed;
+	top: -1000em;
+}
+
+.image_pack{
+	width: 27em;
+	img{
+		height: 5em;
+		width: 5em;
+		padding: .2em
+	}
+}

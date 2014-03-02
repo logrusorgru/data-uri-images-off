@@ -1,0 +1,104 @@
+%h1 Демо | data URI не используется
+%br
+= link_to 'Info', info_path
+\|
+= link_to 'data URI используется', 'http://data-uri-images-on.herokuapp.com/'
+\|
+= link_to 'data URI с пимощью гема', 'http://data-uri-images-gem.herokuapp.com/'
+%br
+%p#notice= notice
+%h3	Простое изображение
+%p
+	= image_tag image_path( 'u0.png' ), class: 'simple'
+	%h5 html
+	%pre= "#{image_tag image_path( 'u0.png' ), class: 'simple'}"
+	%h5 scss
+	%pre
+		:preserve
+			.simple{
+				height: 7em;
+				width: 7em;
+			}
+	%h5 вьюха
+	%pre = image_tag image_path( 'u0.png' ), class: 'simple'
+%h3	Изображение с фоновым цветом
+%p
+	= image_tag image_path( 'u0.png' ), class: 'simple bg_ddd'
+	%h5 html
+	%pre= "#{image_tag image_path( 'u0.png' ), class: 'simple bg_ddd'}"
+	%h5 scss
+	%pre
+		:preserve
+			.simple{
+				height: 7em;
+				width: 7em;
+			}
+
+			.bg_ddd{
+				background: #ddd;
+			}
+	%h5 вьюха
+	%pre = image_tag image_path( 'u0.png' ), class: 'simple bg_ddd'
+%h3	Изображение &mdash; отправка формы ( &lt;input type=image ...&gt; )
+%p
+	= image_submit_tag image_path( 'u0.png' )
+	%h5 html
+	%pre= "#{image_submit_tag image_path( 'u0.png' )}"
+	%h5 scss
+	%pre
+		:preserve
+			// нет стилей
+	%h5 вьюха
+	%pre = image_submit_tag image_path( 'u0.png' )
+%h3	Изображение &mdash; отправка формы с фоном ( &lt;input type=image ...&gt; )
+%p
+	= image_submit_tag image_path( 'u0.png' ), class: 'bg_ddd'
+	%h5 html
+	%pre= "#{image_submit_tag image_path( 'u0.png' ), class: 'bg_ddd'}"
+	%h5 scss
+	%pre
+		:preserve
+			.bg_ddd{
+				background: #ddd;
+			}
+	%h5 вьюха
+	%pre = image_submit_tag image_path( 'u0.png' ), class: 'bg_ddd'
+%h3	Изображение &mdash; отправка формы внутри <code>form_for</code>
+%p
+	= form_for Emptyness.new, url: empty_path do |f|
+		= f.submit 'Коммит!', type: 'image', src: image_path( 'u0.png' )
+	%h5 html
+	%pre= "#{ form_for( Emptyness.new, url: empty_path ){ |f| f.submit( 'Коммит!', type: 'image', src: image_path( 'u0.png' ) ) } }".gsub(/></, ">\n<")
+	%h5 scss
+	%pre
+		:preserve
+			// нет стилей
+	%h5 вьюха
+	%pre
+		:preserve
+			= form_for Emptyness.new, url: empty_path do |f|
+				= f.submit 'Коммит!', type: 'image', src: image_path( 'u0.png' )
+%h3	Изображение &mdash; отправка формы внутри <code>form_for</code> с фоном
+%p
+	= form_for Emptyness.new, url: empty_path do |f|
+		= f.submit 'Коммит!', type: 'image', src: image_path( 'u0.png' ), class: 'bg_ddd'
+	%h5 html
+	%pre= "#{ form_for( Emptyness.new, url: empty_path ){ |f| f.submit( 'Коммит!', type: 'image', src: image_path( 'u0.png' ), class: 'bg_ddd' ) } }".gsub(/></, ">\n<")
+	%h5 scss
+	%pre
+		:preserve
+			.bg_ddd{
+				background: #ddd;
+			}
+	%h5 вьюха
+	%pre
+		:preserve
+			= form_for Emptyness.new, url: empty_path do |f|
+				= f.submit 'Коммит!', type: 'image', src: image_path( 'u0.png' ), class: 'bg_ddd'
+%h3	Пачка изображений
+%p= image_pack @images
+.clear_both
+%h3 Коментарии
+%p= render 'comments/index'
+%h3 Оставить коментарий
+%p= render 'comments/new'
