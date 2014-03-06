@@ -4,8 +4,6 @@
 \|
 = link_to 'data URI используется', 'http://data-uri-images-on.herokuapp.com/'
 \|
-= link_to 'data URI с пимощью гема', 'http://data-uri-images-gem.herokuapp.com/'
-\|
 = link_to 'коментарии', '#comments'
 %br
 %p#notice= notice
@@ -21,7 +19,7 @@
 				height: 7em;
 				width: 7em;
 			}
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre = image_tag image_path( 'u0.png' ), class: 'simple'
 %h3	Изображение с фоновым цветом
 %p
@@ -39,7 +37,7 @@
 			.bg_ddd{
 				background: #ddd;
 			}
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre = image_tag image_path( 'u0.png' ), class: 'simple bg_ddd'
 %h3	Изображение &mdash; отправка формы ( &lt;input type=image ...&gt; )
 %p
@@ -50,7 +48,7 @@
 	%pre
 		:preserve
 			// нет стилей
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre = image_submit_tag image_path( 'u0.png' )
 %h3	Изображение &mdash; отправка формы с фоном ( &lt;input type=image ...&gt; )
 %p
@@ -63,7 +61,7 @@
 			.bg_ddd{
 				background: #ddd;
 			}
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre = image_submit_tag image_path( 'u0.png' ), class: 'bg_ddd'
 %h3	Изображение &mdash; отправка формы внутри <code>form_for</code>
 %p
@@ -75,7 +73,7 @@
 	%pre
 		:preserve
 			// нет стилей
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre
 		:preserve
 			= form_for Emptyness.new, url: empty_path do |f|
@@ -92,7 +90,7 @@
 			.bg_ddd{
 				background: #ddd;
 			}
-	%h5 вьюха
+	%h5 вьюха (haml)
 	%pre
 		:preserve
 			= form_for Emptyness.new, url: empty_path do |f|
