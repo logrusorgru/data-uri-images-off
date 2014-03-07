@@ -1,2 +1,52 @@
-%h1 Static#info
-%p Find me in app/views/static/info.html.haml
+%h1 info
+%h2 Количество запросов к серверу
+%p
+	%table.tbl
+		%tr
+			%th Запрос
+			%th	Используя гем data_uri_images
+			%th Не используя
+		%tr
+			%td первый запрос
+			%td 5 запросов
+			%td 25 запросов
+		%tr
+			%td второй
+			%td 4 запроса, 2 из которых 304
+			%td 24 запроса, 23 из которых 304
+
+%h2 На Github
+%p
+	%h3 Гем
+	= link_to 'Репозитарий', 'http://github.com/logrusorgru/data_uri_images'
+	%h3 Приложения (сырцы)
+	= link_to 'Гем используется', 'http://github.com/logrusorgru/data-uri-images-on'
+	%br
+	= link_to 'Гем не используется', 'http://github.com/logrusorgru/data-uri-images-off'
+
+%h2 На Хабре
+%p
+	= link_to 'Статья', '#no_url'
+
+%h2 Поддержка
+%p
+	%b IE9+
+
+%h2 Необходимые пользовательские стили
+%p
+	Элементу с классом .uri необходимо добавить как минимум
+	%pre
+		:preserve
+			.uri{
+				width: 3em; /* значения для примера */
+				height: 3em;
+			}
+	Рекомендуется
+	%pre
+		:preserve
+			.uri{
+				width: 3em;
+				height: 3em;
+				float: left;
+				padding: .5em;
+			}
