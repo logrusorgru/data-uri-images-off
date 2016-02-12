@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
     end
 
     def no_http
-      if params[:comment][:content].slice(URI.regexp) != ""
+      if params[:comment][:content].slice(URI.regexp) != nil
         redirect_to root_path, notice: 'Спамишь сука?'
       end
     end
