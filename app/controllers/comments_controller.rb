@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :no_more, :capcha, only: [ :create ]
+  before_action :no_more, :capcha, :no_http, only: [ :create ]
 
 #  # GET /comments
 #  # GET /comments.json
@@ -59,6 +59,12 @@ class CommentsController < ApplicationController
 
     def capcha
       redirect_to root_path, notice: 'Вы точно не бот?' if !params[:user][:email].blank?
+    end
+
+    def no_http
+      if URI.extract(params[:user][:content]).length != 0
+        redirect_to root_path, notice: 'Спамишь сука?'
+      end
     end
 
 end
