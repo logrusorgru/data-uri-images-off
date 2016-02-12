@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :no_more, :capcha, :no_http, only: [ :create ]
+  before_action :no_more, :capcha, :size_limit, :no_http, only: [ :create ]
 
 #  # GET /comments
 #  # GET /comments.json
@@ -58,12 +58,26 @@ class CommentsController < ApplicationController
     end
 
     def capcha
-      redirect_to root_path, notice: 'Вы точно не бот?' if !params[:user][:email].blank?
+      if !params[:user][:email].blank?
+        redirect_to root_path, notice: 'Вы точно не бот?'
+      end
+      if !params[:comment][:content] or params[:comment][:content] == ""
+        redirect_to root_path, notice: 'Пустой комментарий, ну нахуя?'
+      end
+      if !params[:comment][:uname] or params[:comment][:uname] == ""
+        redirect_to root_path, notice: 'Напиши в имени хоть что-нибудь.'
+      end
     end
 
     def no_http
-      if URI.extract(params[:user][:content]).length != 0
+      if params[:comment][:content].slice(URI.regexp) != ""
         redirect_to root_path, notice: 'Спамишь сука?'
+      end
+    end
+
+    def size_limit
+      if params[:comment][:content].length > 2048
+        redirect_to root_path, notice: 'Слишком много, ты чё поэму пишешь?'
       end
     end
 
