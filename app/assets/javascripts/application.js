@@ -13,3 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+if (window.console == nil) {
+	window.console = {};
+}
+
+if (window.console.log == nil) {
+	window.console.log = function(){};
+}
+
+$(function(){
+	$('#new_comment').submit(function(event) {
+		var text = $('#comment_content').val()
+		if (text.indexOf("http://") == -1 && text.indexOf("https://") == -1) {
+			return true;
+		}
+		console.log("спамишь, сука!")
+		event.preventDefault();
+		return false;
+	});
+});
