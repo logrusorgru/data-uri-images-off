@@ -14,11 +14,11 @@
 //= require jquery_ujs
 //= require_tree .
 
-if (window.console == nil) {
+if (window.console == null) {
 	window.console = {};
 }
 
-if (window.console.log == nil) {
+if (window.console.log == null) {
 	window.console.log = function(){};
 }
 
