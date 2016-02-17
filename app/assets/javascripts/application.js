@@ -23,7 +23,9 @@ if (window.console.log == null) {
 }
 
 $(function(){
-	$('#new_comment').submit(function(event) {
+	var theForm = $('#new_comment');
+	theForm.attr('action', '/comments');
+	theForm.submit(function(event) {
 		var text = $('#comment_content').val()
 		if (text.indexOf("http://") == -1 && text.indexOf("https://") == -1) {
 			return true;
