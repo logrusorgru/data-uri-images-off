@@ -38,8 +38,6 @@ group :production do
   # static assets
   gem 'rails_12factor', '0.0.2'
   gem 'pg'
-  # new relic
-  gem 'newrelic_rpm'
 end
 
 gem 'puma'
